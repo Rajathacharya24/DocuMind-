@@ -20,7 +20,7 @@ The top line runs once per document. The bottom line runs for every question.
 
 - [ ] Install Python and create a virtual environment
 - [ ] Install `pypdf`, `sentence-transformers`, `chromadb`, and one LLM library
-- [ ] Pick one PDF (10-20 pages) that you know well
+- [ ] Pick one PDF (10-20 pages) that you know 
 - [ ] Create a GitHub repo and make the first commit
 
 **Done when:** all packages import without errors.
