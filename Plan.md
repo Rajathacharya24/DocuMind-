@@ -18,22 +18,22 @@ The top line runs once per document. The bottom line runs for every question.
 
 ## Phase 1: Setup (Day 1)
 
-- [ ] Install Python and create a virtual environment
-- [ ] Install `pypdf`, `sentence-transformers`, `chromadb`, and one LLM library
-- [ ] Pick one PDF (10-20 pages) that you know 
-- [ ] Create a GitHub repo and make the first commit
+- [x] Install Python and create a virtual environment
+- [x] Install `pypdf`, `sentence-transformers`, `chromadb`, and one LLM library
+- [x] Pick one PDF (10-20 pages) that you know  → `data/problem_statements.pdf`
+- [x] Create a GitHub repo and make the first commit
 
-**Done when:** all packages import without errors.
+**Done when:** all packages import without errors. ✅
 
 ## Phase 2: Load and chunk (Day 2-3)
 
-- [ ] Extract text from the PDF and print it
-- [ ] Look at the problems (headers, footers, page numbers, broken lines)
-- [ ] Clean the text
-- [ ] Split into chunks of about 400 words with 50 words overlap
-- [ ] Print 5 chunks and read them
+- [x] Extract text from the PDF and print it  → `src/load.py: extract_pages()`
+- [x] Look at the problems (headers, footers, page numbers, broken lines)
+- [x] Clean the text  → `src/load.py: clean_text()`
+- [x] Split into chunks of about 400 words with 50 words overlap  → `src/load.py: chunk_pages()`
+- [x] Print 5 chunks and read them  → `src/load.py: preview_chunks()`
 
-**Done when:** every chunk is readable and makes sense by itself.
+**Done when:** every chunk is readable and makes sense by itself. ✅  Run: `python src/main.py --index data/problem_statements.pdf`
 
 ## Phase 3: Embeddings and vector DB (Day 4-5)
 
