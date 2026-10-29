@@ -4,6 +4,29 @@ A simple RAG (Retrieval-Augmented Generation) project that answers questions fro
 
 Built as a learning project to understand how RAG works: theory, technical details, and practice.
 
+## 🗓️ Progress — Day 1 (29 Oct 2026)
+
+### ✅ Done today
+| Phase | What we built | Status |
+|-------|--------------|--------|
+| **Phase 1 – Setup** | Created virtual environment, installed all packages (`pypdf`, `sentence-transformers`, `chromadb`, `streamlit`), added `requirements.txt`, picked PDF (`data/problem_statements.pdf`) | ✅ Done |
+| **Phase 2 – Load & Chunk** | `src/load.py` — extracts text page-by-page, cleans noise (page numbers, broken lines), splits into 400-word chunks with 50-word overlap, previews 5 chunks | ✅ Done |
+
+**What we verified:** ran `python src/main.py --index data/problem_statements.pdf` → 4 pages extracted, 2 clean chunks printed, every chunk readable on its own. ✅
+
+---
+
+### 📋 Still to do
+| Phase | Goal | Status |
+|-------|------|--------|
+| **Phase 3 – Embeddings & Vector DB** | Embed each chunk with `sentence-transformers`, store chunks + embeddings + page numbers in ChromaDB | ⬜ Next |
+| **Phase 4 – Retrieval** | Embed a question, find the top-4 most similar chunks, print similarity scores | ⬜ |
+| **Phase 5 – Generation** | Build a prompt, call the LLM, show the answer and source chunks | ⬜ |
+| **Phase 6 – Test & Improve** | Write 10 test questions, measure accuracy, tune chunk size and top-k | ⬜ |
+| **Phase 7 – Finish** | Add Streamlit UI, clean code, publish to GitHub | ⬜ |
+
+---
+
 ## What it does
 
 1. You load a PDF (for example a policy, manual, or textbook chapter).
