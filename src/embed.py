@@ -15,7 +15,10 @@ COLLECTION_NAME = "documind"
 def get_collection(persist_dir: str = DB_DIR):
     """Open (or create) the persistent ChromaDB collection."""
     client = chromadb.PersistentClient(path=persist_dir)
-    return client.get_or_create_collection(name=COLLECTION_NAME)
+    return client.get_or_create_collection(
+        name=COLLECTION_NAME,
+        metadata={"hnsw:space": "cosine"},
+    )
 
 
 def embed_chunks(
@@ -97,7 +100,6 @@ def search(
     )
 
     hits = []
-    chunk_id = 0
     for text, meta, dist, idx in zip(
         result["documents"][0],
         result["metadatas"][0],
@@ -109,10 +111,9 @@ def search(
                 "chunk_id": int(idx),
                 "text": text,
                 "page": meta["page"],
-                "score": 1.0 - dist,  # chroma uses squared L2 → convert to similarity
+                "score": 1.0 - dist,  # cosine space: distance → similarity (0..1)
             }
         )
-        chunk_id += 1
 
     return hits
 
