@@ -95,18 +95,7 @@ pip install openai              # or: anthropic / google-generativeai
 export OPENAI_API_KEY="your-key-here"
 ```
 
-## Usage
 
-```bash
-# Index your PDF
-python src/main.py --index data/your_file.pdf
-
-# Ask a question
-python src/main.py --ask "What is the leave policy?"
-
-# Run the UI (optional)
-streamlit run app.py
-```
 
 ## Key settings to experiment with
 
