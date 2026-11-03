@@ -15,6 +15,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.load import extract_pages, preview_chunks
 from src.load import chunk_pages
 from src.embed import embed_chunks, search, preview_hits, get_collection
+from src.generate import generate_answer
 
 
 def phase2_index(pdf_path: str, show_chunks=False) -> list[dict]:
@@ -50,6 +51,9 @@ def ask_pipeline(question: str, top_k: int = 4) -> list[dict]:
     hits = search(question, top_k=top_k, collection=collection)
     preview_hits(hits)
     print(f"\n[Phase 4] Done. Retrieved {len(hits)} chunks — next up: Phase 5 (LLM answer).")
+
+    answer = generate_answer(question, [hit["text"] for hit in hits])
+    print(f"\n[Phase 5] Answer:\n{answer}\n")
     return hits
 
 
