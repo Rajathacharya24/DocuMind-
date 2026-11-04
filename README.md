@@ -4,26 +4,38 @@ A simple RAG (Retrieval-Augmented Generation) project that answers questions fro
 
 Built as a learning project to understand how RAG works: theory, technical details, and practice.
 
-## 🗓️ Progress — Day 1 (29 Oct 2026)
+## 🗓️ Project checklist
 
-### ✅ Done today
-| Phase | What we built | Status |
-|-------|--------------|--------|
-| **Phase 1 – Setup** | Created virtual environment, installed all packages (`pypdf`, `sentence-transformers`, `chromadb`, `streamlit`), added `requirements.txt`, picked PDF (`data/problem_statements.pdf`) | ✅ Done |
-| **Phase 2 – Load & Chunk** | `src/load.py` — extracts text page-by-page, cleans noise (page numbers, broken lines), splits into 400-word chunks with 50-word overlap, previews 5 chunks | ✅ Done |
+### ✅ Done
+- [x] Set up the Python project and virtual environment
+- [x] Installed dependencies: `pypdf`, `sentence-transformers`, `chromadb`, `streamlit`, `openai`
+- [x] Added project requirements in `requirements.txt`
+- [x] Selected a PDF for the project: `data/problem_statements.pdf`
+- [x] Extracted text page by page from the PDF
+- [x] Cleaned PDF noise like page numbers and broken line breaks
+- [x] Split the text into overlapping chunks with a 400-word chunk size and 50-word overlap
+- [x] Verified chunk output looks readable and useful
 
-**What we verified:** ran `python src/main.py --index data/problem_statements.pdf` → 4 pages extracted, 2 clean chunks printed, every chunk readable on its own. ✅
+### ⏳ Still to do
+- [ ] Phase 3: Create embeddings for each chunk using `sentence-transformers`
+- [ ] Phase 3: Store chunks, embeddings, and page numbers in ChromaDB
+- [ ] Phase 3: Verify the database count matches the chunk count
+- [ ] Phase 4: Embed a question and retrieve the top 4 similar chunks
+- [ ] Phase 4: Check retrieval quality with several sample questions
+- [ ] Phase 5: Build a grounded prompt and call the LLM
+- [ ] Phase 5: Show the answer together with source chunks/pages
+- [ ] Phase 5: Test a question not in the document and confirm it says “I don’t know”
+- [ ] Phase 6: Write 10 test questions and evaluate results
+- [ ] Phase 6: Tune chunk size and top-k settings
+- [ ] Phase 7: Add a Streamlit UI
+- [ ] Phase 7: Clean code and add comments
+- [ ] Phase 7: Finish the README and learning notes
+- [ ] Phase 7: Push the final repo to GitHub
 
----
-
-### 📋 Still to do
-| Phase | Goal | Status |
-|-------|------|--------|
-| **Phase 3 – Embeddings & Vector DB** | Embed each chunk with `sentence-transformers`, store chunks + embeddings + page numbers in ChromaDB | ⬜ Next |
-| **Phase 4 – Retrieval** | Embed a question, find the top-4 most similar chunks, print similarity scores | ⬜ |
-| **Phase 5 – Generation** | Build a prompt, call the LLM, show the answer and source chunks | ⬜ |
-| **Phase 6 – Test & Improve** | Write 10 test questions, measure accuracy, tune chunk size and top-k | ⬜ |
-| **Phase 7 – Finish** | Add Streamlit UI, clean code, publish to GitHub | ⬜ |
+### Verified status
+- Ran `python src/main.py --index data/problem_statements.pdf`
+- Result: PDF pages were extracted and chunking worked as expected
+- Current status: setup and chunking are complete; embedding and vector DB work is the next active step
 
 ---
 
